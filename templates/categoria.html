@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="categoria">
+    <h1>Dextraflix - {{category.name}}</h1>
+    <div class="main-categorias">
+        {% for video in videos %}
+        <div class="video-list-item">
+            <img src="{{video.thumbnail}}" class="video-thumb" />
+            <strong>{{video.name}}</strong><br/>
+            <a href="{{video.url}}" target="_blank">{{video.url}}</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

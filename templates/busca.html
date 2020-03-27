@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="home">
+<h1>Resultado da busca: {{ param }}</h1>
+{{ results.count }} Resultado(s)
+    <div class="main-videos">
+        {% for video in results %}
+            <div class="video-list-item">
+                <img src="{{ video.thumbnail }}" class="video-thumb">
+                <strong>
+                    <a href="{{ video.url }}" target="_blank">{{ video.name }}</a></strong><br />
+                <em>Autores: {% for author in video.authors.all %}{{ author.name }}{% endfor %}</em><br />
+                {{ video.description }}
+            <hr />
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
