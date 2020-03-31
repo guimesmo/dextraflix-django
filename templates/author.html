@@ -1,16 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="author">
+    <h1>{{ author.name }}</h1>
+    <p>
+        Email: <em>{{ author.email }}</em>
+    </p>
+    <p>
+        {{ author.description }}
+    </p>
     <div class="main-videos">
         {% for video in videos %}
             <div class="video-list-item">
                 <img src="{{ video.thumbnail }}" class="video-thumb">
                 <strong>
                     <a href="{{ video.url }}" target="_blank">{{ video.name }}</a></strong><br />
-                <em>Autores: {% for author in video.authors.all %}{{ author.name }}{% endfor %}</em><br />
-                {{ video.description }}
-            <hr />
+                    {{ video.description }}
             </div>
+            <hr />
 
         {% endfor %}
     </div>

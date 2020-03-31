@@ -43,10 +43,10 @@ class Category(models.Model):
 
 
 class Video(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField("Nome", max_length=255)
     video_date = models.DateField(default=datetime.date.today)
     url = models.URLField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Categoria")
     description = models.TextField()
     hashtags = models.CharField(max_length=255)
     authors = models.ManyToManyField(Author)
